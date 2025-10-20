@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Validasi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Formulir Pendaftaran</h2>
+        <form id="myForm">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda">
+
+            <label for="email">Email:</label>
+            <input type="text" id="text" name="text" placeholder="Masukkan email Anda">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Minimal 8 karakter">
+
+            <button type="submit">Kirim</button>
+        </form>
+
+        <p id="errorMsg" class="error"></p>
+    </div>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Mencegah form terkirim langsung
+
+            const nama = document.getElementById("nama").value.trim();
+            const email = document.getElementById("text").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const errorMsg = document.getElementById("errorMsg");
+
+            // Reset pesan error
+            errorMsg.textContent = "";
+
+            // Validasi semua field terisi
+            if (!nama || !email || !password) {
+                errorMsg.textContent = "Isi semua form diatas!";
+                return;
+            }
+
+            // Validasi panjang password
+            if (password.length < 8) {
+                errorMsg.textContent = "Password minimal 8 huruf!";
+                return;
+            }
+
+            alert("Formulir berhasil dikirim!");
+            document.getElementById("myForm").reset();
+        });
+    </script>
+</body>
+
+</html>

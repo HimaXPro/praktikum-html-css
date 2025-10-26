@@ -16,7 +16,7 @@
             <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda">
 
             <label for="email">Email:</label>
-            <input type="text" id="text" name="text" placeholder="Masukkan email Anda">
+            <input type="email" id="email" name="email" placeholder="Masukkan email Anda">
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Minimal 8 karakter">
@@ -32,7 +32,7 @@
             event.preventDefault(); // Mencegah form terkirim langsung
 
             const nama = document.getElementById("nama").value.trim();
-            const email = document.getElementById("text").value.trim();
+            const email = document.getElementById("email").value.trim();
             const password = document.getElementById("password").value.trim();
             const errorMsg = document.getElementById("errorMsg");
 
